@@ -3,3 +3,11 @@
 {% block navbar %}
     {% include 'navbar.html' %}
 {% endblock %}
+
+<!-- Styling -->
+{% block styles %}
+    {{ super()}}
+    <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Righteous" rel="stylesheet">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+{% endblock%}
