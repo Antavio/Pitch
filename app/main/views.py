@@ -6,5 +6,5 @@ def index():
     '''
     View root page function that returns the index page and its data
     '''
-    message = 'Hello Flask'
-    return render_template('index.html',message=message)
+    return render_template('index.html')
+
