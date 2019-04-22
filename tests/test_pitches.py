@@ -18,3 +18,12 @@ class PitchTest(unittest.TestCase):
         self.assertEquals(self.new_pitch.pitch_content,"Pitch content")
         self.assertEquals(self.new_pitch.pitch_category,'pickup')
         self.assertEquals(self.new_pitch.user,self.new_user)
+
+    def test_save_pitch(self):
+        self.new_pitch.save_pitch()
+        self.assertTrue(len(Pitch.query.all())>0)
+
+    def test_get_all_pitches(self):
+        self.new_pitch.save_pitch()
+        get_pitches = Pitch.get_all_pitches()
+        self.assertTrue(len(get_pitches)==1)
