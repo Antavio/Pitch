@@ -21,6 +21,11 @@ h4{
   font-size: 30px;
   color:red;
 }
+.profile_pic img{
+  border-radius: 40px;
+  width: 100%;
+  height: auto;
+}
 .home{
     background-image: linear-gradient(rgba(0, 0, 0, 0.61), rgba(0, 0, 0, 0.61)), url('/static/busy-computer.jpg');
     background-size: cover;
