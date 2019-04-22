@@ -19,8 +19,8 @@
                 <li style="color:white;padding:20px;">{{current_user.username}}</li>
                 <li><a href="{{url_for('auth.logout')}}">Log out</a></li>
                 {% else %}
-                <li><a href="/"><span class="glyphicon glyphicon-user"></span> Register</a></li>
-                <li><a href="/"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                <li><a href=""><span class="glyphicon glyphicon-user"></span> Register</a></li>
+                <li><a href="{{url_for('auth.login')}}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                 {% endif %}
             </ul>
 
