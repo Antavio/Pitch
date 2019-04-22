@@ -11,6 +11,16 @@ h3{
     font-size: 35px;
 }
 
+h2{
+  font-family: 'Righteous', cursive;
+  font-size: 50px;
+}
+h4{
+  font-family: 'Righteous', cursive;
+  font-family: 'Kaushan Script', cursive;
+  font-size: 30px;
+  color:red;
+}
 .home{
     background-image: linear-gradient(rgba(0, 0, 0, 0.61), rgba(0, 0, 0, 0.61)), url('/static/busy-computer.jpg');
     background-size: cover;
