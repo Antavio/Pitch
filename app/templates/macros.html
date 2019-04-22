@@ -1,0 +1,19 @@
+{% macro displayPitches(pitches) %}
+{% for pitch in pitches %}
+<div class="col-md-12">
+    {% if pitch.user.profile_pic_path %}
+    <p>
+            <img src="{{url_for('static',filename = pitch.user.profile_pic_path)}}" alt="" class="img-thumbnail">
+            <a href="/user/{{pitch.user.username}}&{{pitch.user.id}}">{{pitch.user.username|capitalize}}</a>
+    </p>
+    {% else %}
+    <p>
+            <img src="{{url_for('static',filename = 'photos/Avatar.png')}}" alt="" class="img-thumbnail">
+            <a href="/user/{{pitch.user.username}}&{{pitch.user.id}}">{{pitch.user.username|capitalize}}</a>
+    </p>    
+    {% endif %}
+    <p>{{pitch.pitch_content}}</p>
+    <h6><strong>Category: </strong>{{pitch.pitch_category}}</h6>
+</div>
+{% endfor %}
+{% endmacro %}
