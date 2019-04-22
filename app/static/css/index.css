@@ -26,6 +26,16 @@ h4{
   width: 100%;
   height: auto;
 }
+.pitch_list img{
+  max-width: 80px;
+  margin-top: 5px;
+  border-radius: 20px;
+}
+.pitch_list{
+  margin: 5px;
+  border-radius: 7px;
+  border: 2px dotted #008080;
+}
 .home{
     background-image: linear-gradient(rgba(0, 0, 0, 0.61), rgba(0, 0, 0, 0.61)), url('/static/busy-computer.jpg');
     background-size: cover;

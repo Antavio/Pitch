@@ -1,7 +1,7 @@
 from flask import render_template,redirect,url_for,request,abort,flash
 from . import main
-from ..models import User
-from .forms import UpdateProfile
+from ..models import User,Pitch
+from .forms import UpdateProfile,PitchForm
 from flask_login import login_required,current_user
 from .. import db,photos
 
@@ -52,3 +52,22 @@ def update_pic(uname):
         user.profile_pic_path = path
         db.session.commit()
     return redirect(url_for('main.profile',uname=uname))
+
+@main.route('/pitches', methods = ['GET', 'POST'])
+@login_required
+def pitches_list():
+    pitch_form = PitchForm()
+    
+    if pitch_form.validate_on_submit():
+        pitch = pitch_form.pitch.data
+        cat = pitch_form.pitch_category.data
+
+        new_pitch = Pitch(pitch_content=pitch, pitch_category = cat, user = current_user)
+        new_pitch.save_pitch()
+
+        return redirect(url_for('main.pitches_list'))
+
+    all_pitches = Pitch.get_all_pitches()
+
+    title = 'Pitches Page'    
+    return render_template('pitches.html', title = title, pitch_form = pitch_form, pitches = all_pitches)
