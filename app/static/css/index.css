@@ -41,11 +41,10 @@ h2{
   float: right;
 
 }
-.home{
+body{
     background-image: linear-gradient(rgba(0, 0, 0, 0.61), rgba(0, 0, 0, 0.61)), url('/static/busy-computer.jpg');
     background-size: cover;
-    width: 100%;
-    height: 100%;
+    
 }
 .style-card h4{
   font-family: 'Special Elite', cursive;
