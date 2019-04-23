@@ -1,7 +1,7 @@
 from flask import render_template,redirect,url_for,request,abort,flash
 from . import main
-from ..models import User,Pitch
-from .forms import UpdateProfile,PitchForm
+from ..models import User,Pitch,Comment
+from .forms import UpdateProfile,PitchForm,CommentForm
 from flask_login import login_required,current_user
 from .. import db,photos
 
@@ -71,3 +71,26 @@ def pitches_list():
 
     title = 'Pitches Page'    
     return render_template('pitches.html', title = title, pitch_form = pitch_form, pitches = all_pitches)
+
+@main.route('/comments/<int:id>',methods = ['GET','POST'])
+@login_required
+def pitch(id):
+    
+    my_pitch = Pitch.query.get(id)
+    comment_form = CommentForm()
+
+    if id is None:
+        abort(404)
+
+    if comment_form.validate_on_submit():
+        comment_data = comment_form.comment.data
+        new_comment = Comment(comment_content = comment_data, pitch_id = id, user = current_user)
+        new_comment.save_comment()
+
+        return redirect(url_for('main.pitch',id=id))
+
+    all_comments = Comment.get_comments(id)
+
+
+    title = 'Comments Page'
+    return render_template('comments.html',pitch = my_pitch, comment_form = comment_form, comments = all_comments, title = title)

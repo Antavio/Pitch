@@ -15,7 +15,7 @@ h2{
   font-family: 'Righteous', cursive;
   font-size: 50px;
 }
-h4{
+.reg h4{
   font-family: 'Righteous', cursive;
   font-family: 'Kaushan Script', cursive;
   font-size: 30px;
@@ -46,6 +46,25 @@ h4{
     background-size: cover;
     width: 100%;
     height: 100%;
+}
+.style-card h4{
+  font-family: 'Special Elite', cursive;
+}
+.style-card p {
+  font-family: 'Patrick Hand', cursive;
+  font-size: 25px;
+}
+.content{
+  font-family: 'Special Elite', cursive;
+  font-size: 30px;
+}
+.style-card{
+  border: 1px solid #259BDA;
+  border-radius: 7px;
+  margin: 3px;
+}
+.cmm{
+  float: right;
 }
 * {
     -webkit-box-sizing: border-box;
