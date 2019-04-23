@@ -35,6 +35,8 @@ The different technologies that were used to develop this program include:
 4. CSS
 5.Postgresql
 ```
+### Link to live site
+Here is a link to the live site https://revolutionarypitches.herokuapp.com/
 ### Contact Me
 If you have any suggestions, additions or modifications on this project you can reach me via my email: njuguna13@gmail.com
 
