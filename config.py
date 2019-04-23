@@ -3,7 +3,7 @@ import os
 class Config:
 
     SECRET_KEY = os.environ.get('SECRET_KEY')
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://antavio:pass123@localhost/pitch'
+    # SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://antavio:pass123@localhost/pitch'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
     UPLOADED_PHOTOS_DEST ='app/static/photos'
@@ -22,7 +22,13 @@ class ProdConfig(Config):
     Args:
         Config:The parent configuration class with General configuration settings
     '''
-    pass
+    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
+
+
+class TestConfig(Config):
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://antavio:pass123@localhost/pitch_test'
+
+
 class DevConfig(Config):
     '''
     Development  configuration child class
@@ -30,18 +36,14 @@ class DevConfig(Config):
     Args:
         Config: The parent configuration class with General configuration settings
     '''
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://antavio:pass123@localhost/pitch'
     DEBUG = True
-# class TestConfig(Config):
-#     '''
-#     Test configuration child class
+
     
-#     Args:
-#         Config: The parent configuration class with general configuration settings
-#     '''
 
 
 config_options = {
     'development':DevConfig,
     'production':ProdConfig,
-    # 'test':TestConfig
+    'test':TestConfig
 }
